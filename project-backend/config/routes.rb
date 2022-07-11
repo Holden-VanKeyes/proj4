@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :character_classes
-  resources :items
+  resources :character_classes, only: [:index]
+  resources :items, only: [:index]
   resources :campaigns
   resources :characters
-  resources :friends
+  resources :friends, only: [:index, :create, :destroy]
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
