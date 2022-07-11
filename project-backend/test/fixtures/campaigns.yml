@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  genre: MyString
+  notes: MyText
+  world_level: 1
+  start_time: 2022-07-11 12:26:46
+  admin_id: 1
+
+two:
+  name: MyString
+  genre: MyString
+  notes: MyText
+  world_level: 1
+  start_time: 2022-07-11 12:26:46
+  admin_id: 1
