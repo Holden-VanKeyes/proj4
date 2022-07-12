@@ -42,10 +42,10 @@ function Home() {
   }
 
   function runFetch(newUserObj) {
-    console.log(newUserObj)
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      // credentials: 'include',
       body: JSON.stringify(newUserObj),
     })
       .then((response) => response.json())
