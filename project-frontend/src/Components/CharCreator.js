@@ -1,19 +1,53 @@
 import React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
+import Button from 'react-bootstrap/esm/Button'
+import { useState, useEffect } from 'react'
+import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import CharSelection from './CharSelection'
 
 function CharCreator() {
-  return (
-    <>
-      <h2>Create New Character</h2>
-      <div>
-        <DropdownButton drop="end" variant="secondary" title="Select" size="lg">
-          <Dropdown.Item eventKey="1">Class</Dropdown.Item>
-          <Dropdown.Item eventKey="2">Weapon</Dropdown.Item>
-          <Dropdown.Item eventKey="3">Magic</Dropdown.Item>
-        </DropdownButton>
-      </div>
-    </>
-  )
+  const [newVoyager, setNewVoyager] = useState(0)
+  const [selection, setSelection] = useState(false)
+  const [showAllClasses, setShowAllClasses] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/character_classes')
+      .then((response) => response.json())
+      .then((classes) => setShowAllClasses(classes))
+  }, [])
+
+  function handleCharSelect(choice) {
+    setSelection(true)
+    setNewVoyager(choice)
+  }
+  if (selection) return <CharSelection newVoyager={newVoyager} />
+  else
+    return (
+      <>
+        <h2>Create New Character</h2>
+        <Row xs={1} md={4} className="g-4">
+          {showAllClasses.map((oneClass) => (
+            <Col>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={oneClass.image_url} />
+                <Card.Body>
+                  <Card.Title>{oneClass.name}</Card.Title>
+                  <Card.Text>{oneClass.description}</Card.Text>
+                  <Button
+                    variant="primary"
+                    onClick={() => handleCharSelect(oneClass.id)}
+                  >
+                    Go somewhere
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </>
+    )
 }
 export default CharCreator
