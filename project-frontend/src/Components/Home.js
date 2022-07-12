@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 import Button from 'react-bootstrap/esm/Button'
 import { useState } from 'react'
@@ -10,6 +11,10 @@ import Row from 'react-bootstrap/Row'
 function Home() {
   const [signInClick, setSignInClick] = useState(false)
   const [createClick, setCreateClick] = useState(false)
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [newUserObj, setNewUserObj] = useState({})
 
   function showSignIn() {
     setSignInClick(true)
@@ -17,8 +22,34 @@ function Home() {
   function showCreate() {
     setCreateClick(true)
   }
+
+  function handleUserName(e) {
+    setUserName(e.target.value)
+  }
+
+  function handlePassword(e) {
+    setPassword(e.target.value)
+  }
+  function handlePasswordConfirm(e) {
+    setPasswordConfirm(e.target.value)
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
+
+    setNewUserObj({ username: userName, password: password })
+    runFetch(newUserObj)
+  }
+
+  function runFetch(newUserObj) {
+    console.log(newUserObj)
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newUserObj),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
   }
 
   if (signInClick) {
@@ -27,7 +58,11 @@ function Home() {
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={1}></Form.Label>
           <Col sm={5}>
-            <Form.Control type="username" placeholder="Username" />
+            <Form.Control
+              type="username"
+              placeholder="Username"
+              onChange={handleUserName}
+            />
           </Col>
         </Form.Group>
 
@@ -38,7 +73,11 @@ function Home() {
         >
           <Form.Label column sm={1}></Form.Label>
           <Col sm={5}>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={handlePassword}
+            />
           </Col>
         </Form.Group>
 
@@ -62,7 +101,11 @@ function Home() {
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={1}></Form.Label>
           <Col sm={5}>
-            <Form.Control type="username" placeholder="Username" />
+            <Form.Control
+              type="username"
+              placeholder="Username"
+              onChange={handleUserName}
+            />
           </Col>
         </Form.Group>
 
@@ -73,7 +116,26 @@ function Home() {
         >
           <Form.Label column sm={1}></Form.Label>
           <Col sm={5}>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={handlePassword}
+            />
+          </Col>
+        </Form.Group>
+
+        <Form.Group
+          as={Row}
+          className="mb-3"
+          controlId="formHorizontalPasswordConfirm"
+        >
+          <Form.Label column sm={1}></Form.Label>
+          <Col sm={5}>
+            <Form.Control
+              type="password"
+              placeholder="Confirm Password"
+              onChange={handlePasswordConfirm}
+            />
           </Col>
         </Form.Group>
         <fieldset>
