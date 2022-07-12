@@ -1,3 +1,4 @@
+
 puts "🏕 Seeding CharacterClasses..."
 
 barbarian = CharacterClass.create(name: "Barbarian", description: "A fierce warrior of primitive background who can enter a battle rage", ability: "Strength", saves: "Strength & Constitution")
@@ -55,4 +56,4 @@ puts "🏕 Seeding user..."
 
 puts "🏕 Seeding friend..."
 
-#Friend.create(user_id: user_id, friend_id: friend_id)
+Friend.create(user_id: user_id, friend_id: friend_id)
