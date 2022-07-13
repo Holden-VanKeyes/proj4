@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_13_172646) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_13_204908) do
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
     t.string "genre"
@@ -50,9 +50,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_172646) do
     t.string "name"
     t.string "category"
     t.string "image_url"
-    t.integer "power_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stat"
   end
 
   create_table "orders", force: :cascade do |t|
