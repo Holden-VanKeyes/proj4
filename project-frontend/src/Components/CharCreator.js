@@ -30,7 +30,7 @@ function CharCreator() {
         <h2>Create New Character</h2>
         <Row xs={1} md={4} className="g-4">
           {showAllClasses.map((oneClass) => (
-            <Col>
+            <Col key={oneClass.name}>
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={oneClass.image_url} />
                 <Card.Body>
