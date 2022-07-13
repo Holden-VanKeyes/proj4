@@ -1,0 +1,2 @@
+module CharacterItemsHelper
+end
