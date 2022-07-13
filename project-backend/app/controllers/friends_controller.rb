@@ -7,7 +7,7 @@ class FriendsController < ApplicationController
         friend = Friend.create!(friend_params)
         render json: friend, status: :created
     rescue ActiveRecord::RecordInvalid => exception
-        render json: {errors: exception.errors.full_messages}, status: :unprocessable_entity
+        render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     def destroy

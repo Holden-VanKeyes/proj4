@@ -52,13 +52,13 @@ intelligence_potion = Item.create(name: "Intelligence Potion", category: "Potion
 strength_potion = Item.create(name: "Strength Potion", category: "Potion", image_url: "https://i.imgur.com/jGLVPYm.png", stat: "STR +10")
 wisdom_potion = Item.create(name: "Wisdom Potion", category: "Potion", image_url: "https://i.imgur.com/ZNXj2sN.png", stat: "WIS +10")
 
-puts "🏕 Seeding character_items..."
-CharacterItem.create(item_id:1, character_id:1)
-
 puts "🏕 Seeding characters..."
 
 #Character.create(name: "",  order_id: order_id, level: 1, user_id: user_id, campaign_id: campaign_id)
 Character.create(name:'shrek', bio:'ogre', level:1, order_id:1, user_id:1, campaign_id:1)
+
+puts "🏕 Seeding character_items..."
+CharacterItem.create(item_id:1, character_id:1)
 
 puts "🏕 Seeding friends..."
 
