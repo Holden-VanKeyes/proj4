@@ -52,13 +52,13 @@ dragonleather_shield = Item.create(name: "Dragon-leather Shield", category: "Off
 # Item.create(name: "", category: "", image_url: "", power_level: )
 # Item.create(name: "", category: "", image_url: "", power_level: )
 
-puts "🏕 Seeding character_items..."
-CharacterItem.create(item_id:1, character_id:1)
-
 puts "🏕 Seeding characters..."
 
 #Character.create(name: "",  order_id: order_id, level: 1, user_id: user_id, campaign_id: campaign_id)
 Character.create(name:'shrek', bio:'ogre', level:1, order_id:1, user_id:1, campaign_id:1)
+
+puts "🏕 Seeding character_items..."
+CharacterItem.create(item_id:1, character_id:1)
 
 puts "🏕 Seeding friends..."
 
