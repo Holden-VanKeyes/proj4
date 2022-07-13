@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_13_153420) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_13_172646) do
   create_table "campaigns", force: :cascade do |t|
     t.string "name"
     t.string "genre"
@@ -19,16 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_153420) do
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "character_classes", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
-    t.string "description"
-    t.string "ability"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "saves"
   end
 
   create_table "character_items", force: :cascade do |t|
@@ -42,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_153420) do
     t.string "name"
     t.text "bio"
     t.integer "level"
-    t.integer "character_class_id"
+    t.integer "order_id"
     t.integer "user_id"
     t.integer "campaign_id"
     t.datetime "created_at", null: false
@@ -63,6 +53,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_13_153420) do
     t.integer "power_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.string "description"
+    t.string "ability"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "saves"
   end
 
   create_table "users", force: :cascade do |t|

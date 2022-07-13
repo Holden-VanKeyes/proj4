@@ -12,20 +12,20 @@ puts "🏕 Seeding campaigns..."
 #Campaign.create(name: "", genre: "", notes: "", world_level: , start_time: )
 Campaign.create(name: "dj's journey", genre: "sci-fi", notes: "idk", world_level: 1, start_time: Time.now)
 
-puts "🏕 Seeding CharacterClasses..."
+puts "🏕 Seeding orders..."
 
-barbarian = CharacterClass.create(name: "Barbarian", description: "A fierce warrior of primitive background who can enter a battle rage", ability: "Strength", saves: "Strength & Constitution")
-bard = CharacterClass.create(name: "Bard", description: "An inspiring magician whose power echoes the music of creation", ability: "charisma", saves: "Dexterity & Charisma")
-cleric = CharacterClass.create(name: "Cleric", description: "A priestly champion who wieldds divine magic in service of a higher power",  ability: "Wisdom", saves: "Wisdom & Charisma")
-druid = CharacterClass.create(name: "Druid", description: "A priest of the Old Faith, wielding the powers of nature and adopting animal forms",  ability: "Wisdom", saves: "Intelligence & Wisdom")
-fighter = CharacterClass.create(name: "Fighter", description: "A master of martial combat, skilled with a variety of weapons and armour",  ability: "Strength or Dexterity", saves: "Strength & Constitution")
-monk = CharacterClass.create(name: "Monk", description: "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection", ability: "Dexterity & Wisdom", saves: "Strength & Dexterity")
-paladin = CharacterClass.create(name: "Paladin", description: "A holy warrior bound to a sacred oath", ability: "Strength & Charisma", saves: "Wisdom & Charisma")
-ranger = CharacterClass.create(name: "Ranger", description: "A warrior who combats threats on the edges of civilization", ability: "Dexterity & Wisdom", saves: "Strength & Dexterity")
-rogue = CharacterClass.create(name: "Rogue", description: "A scoundrel who uses stealth and trickery to overcome obstacles and enemies", ability: "Dexterity", saves: "Dexterity & Intelligence")
-sorcerer = CharacterClass.create(name: "Sorcerer", description: "A spellcaster who draws on inherent magic from a gift of bloodline", ability: "Charisma", saves: "Constitution & Charisma")
-warlock = CharacterClass.create(name: "Warlock", description: "A wielder of magic that is derived from a bargain with an extraplanar entity", ability: "Charisma", saves: "Wisdom & Charisma")
-wizard = CharacterClass.create(name: "Wizard", description: "A scholarly magic-user capable of manipulating the structures of reality", ability: "Intelligence", saves: "Intelligence & Wisdom")
+barbarian = Order.create(name: "Barbarian", description: "A fierce warrior of primitive background who can enter a battle rage", ability: "Strength", saves: "Strength & Constitution")
+bard = Order.create(name: "Bard", description: "An inspiring magician whose power echoes the music of creation", ability: "charisma", saves: "Dexterity & Charisma")
+cleric = Order.create(name: "Cleric", description: "A priestly champion who wieldds divine magic in service of a higher power",  ability: "Wisdom", saves: "Wisdom & Charisma")
+druid = Order.create(name: "Druid", description: "A priest of the Old Faith, wielding the powers of nature and adopting animal forms",  ability: "Wisdom", saves: "Intelligence & Wisdom")
+fighter = Order.create(name: "Fighter", description: "A master of martial combat, skilled with a variety of weapons and armour",  ability: "Strength or Dexterity", saves: "Strength & Constitution")
+monk = Order.create(name: "Monk", description: "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection", ability: "Dexterity & Wisdom", saves: "Strength & Dexterity")
+paladin = Order.create(name: "Paladin", description: "A holy warrior bound to a sacred oath", ability: "Strength & Charisma", saves: "Wisdom & Charisma")
+ranger = Order.create(name: "Ranger", description: "A warrior who combats threats on the edges of civilization", ability: "Dexterity & Wisdom", saves: "Strength & Dexterity")
+rogue = Order.create(name: "Rogue", description: "A scoundrel who uses stealth and trickery to overcome obstacles and enemies", ability: "Dexterity", saves: "Dexterity & Intelligence")
+sorcerer = Order.create(name: "Sorcerer", description: "A spellcaster who draws on inherent magic from a gift of bloodline", ability: "Charisma", saves: "Constitution & Charisma")
+warlock = Order.create(name: "Warlock", description: "A wielder of magic that is derived from a bargain with an extraplanar entity", ability: "Charisma", saves: "Wisdom & Charisma")
+wizard = Order.create(name: "Wizard", description: "A scholarly magic-user capable of manipulating the structures of reality", ability: "Intelligence", saves: "Intelligence & Wisdom")
 
 puts "🏕 Seeding items..."
 
@@ -57,8 +57,8 @@ CharacterItem.create(item_id:1, character_id:1)
 
 puts "🏕 Seeding characters..."
 
-#Character.create(name: "",  character_class_id: character_class_id, level: 1, user_id: user_id, campaign_id: campaign_id)
-Character.create(name:'shrek', bio:'ogre', level:1, character_class_id:1, user_id:1, campaign_id:1)
+#Character.create(name: "",  order_id: order_id, level: 1, user_id: user_id, campaign_id: campaign_id)
+Character.create(name:'shrek', bio:'ogre', level:1, order_id:1, user_id:1, campaign_id:1)
 
 puts "🏕 Seeding friends..."
 
