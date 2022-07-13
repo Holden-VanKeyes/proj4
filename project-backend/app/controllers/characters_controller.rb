@@ -33,7 +33,7 @@ class CharactersController < ApplicationController
         params.permit(
             :name, 
             :bio,
-            :class_id,
+            :order_id,
             :level,
             :user_id,
             :campaign_id

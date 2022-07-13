@@ -1,6 +1,5 @@
 import React from 'react'
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+
 import Button from 'react-bootstrap/esm/Button'
 import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
@@ -9,7 +8,7 @@ import Row from 'react-bootstrap/Row'
 import CharSelection from './CharSelection'
 
 function CharCreator() {
-  const [newVoyager, setNewVoyager] = useState(0)
+  const [newVoyager, setNewVoyager] = useState('')
   const [selection, setSelection] = useState(false)
   const [showAllClasses, setShowAllClasses] = useState([])
 
@@ -38,7 +37,7 @@ function CharCreator() {
                   <Card.Text>{oneClass.description}</Card.Text>
                   <Button
                     variant="primary"
-                    onClick={() => handleCharSelect(oneClass.id)}
+                    onClick={() => handleCharSelect(oneClass.name)}
                   >
                     Go somewhere
                   </Button>

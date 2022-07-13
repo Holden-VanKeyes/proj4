@@ -1,5 +1,18 @@
+puts "🏕 Seeding users..."
 
-puts "🏕 Seeding CharacterClasses..."
+#User.create(username: username, password_digest: )
+User.create(username: "brian", password_digest: "123")
+User.create(username: "abram", password_digest: "123")
+User.create(username: "river", password_digest: "123")
+User.create(username: "jimmy", password_digest: "123")
+
+
+puts "🏕 Seeding campaigns..."
+
+#Campaign.create(name: "", genre: "", notes: "", world_level: , start_time: )
+Campaign.create(name: "dj's journey", genre: "sci-fi", notes: "idk", world_level: 1, start_time: Time.now)
+
+puts "🏕 Seeding orders..."
 
 barbarian = Order.create(name: "Barbarian", description: "A fierce warrior of primitive background who can enter a battle rage", ability: "Strength", saves: "Strength & Constitution", image_url: 'https://i.imgur.com/8QiqEW6.png')
 bard = Order.create(name: "Bard", description: "An inspiring magician whose power echoes the music of creation", ability: "charisma", saves: "Dexterity & Charisma", image_url: 'https://i.imgur.com/vnQaITb.png')
@@ -39,21 +52,15 @@ intelligence_potion = Item.create(name: "Intelligence Potion", category: "Potion
 strength_potion = Item.create(name: "Strength Potion", category: "Potion", image_url: "https://i.imgur.com/jGLVPYm.png", stat: "STR +10")
 wisdom_potion = Item.create(name: "Wisdom Potion", category: "Potion", image_url: "https://i.imgur.com/ZNXj2sN.png", stat: "WIS +10")
 
+puts "🏕 Seeding character_items..."
+CharacterItem.create(item_id:1, character_id:1)
 
-puts "🏕 Seeding character..."
+puts "🏕 Seeding characters..."
 
-#Character.create(name: "",  character_class_id: character_class_id, level: 1, user_id: user_id, campaign_id: campaign_id)
+#Character.create(name: "",  order_id: order_id, level: 1, user_id: user_id, campaign_id: campaign_id)
+Character.create(name:'shrek', bio:'ogre', level:1, order_id:1, user_id:1, campaign_id:1)
 
+puts "🏕 Seeding friends..."
 
-puts "🏕 Seeding campaign..."
-
-#Campaign.create(name: "", genre: "", notes: "", world_level: , start_time: , admin_id: admin_id)
-
-
-puts "🏕 Seeding user..."
-
-#User.create(username: username, password_digest: )
-
-puts "🏕 Seeding friend..."
-
-Friend.create(user_id: user_id, friend_id: friend_id)
+#Friend.create(user_id: user_id, friend_id: friend_id)
+Friend.create(user_id:1, friend_id:2)
