@@ -22,6 +22,7 @@ function CharCreator() {
     setSelection(true)
     setNewVoyager(choice)
   }
+  console.log(showAllClasses)
   if (selection) return <CharSelection newVoyager={newVoyager} />
   else
     return (
