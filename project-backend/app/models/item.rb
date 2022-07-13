@@ -1,3 +1,4 @@
 class Item < ApplicationRecord
-    belongs_to :character
+    has_many :character_items
+    has_many :characters, through: :character_items
 end
