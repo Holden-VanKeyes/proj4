@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :character_items
-  resources :orders, only: [:index, :create]
+  resources :orders, only: [:index]
   resources :items, only: [:index]
   resources :campaigns
   resources :characters
