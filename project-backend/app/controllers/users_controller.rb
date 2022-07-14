@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     def show
         if current_user
-            render json: current_user
+            render json: current_user, only: [:id, :username]
         else 
             render json: {error:"No active session"}, status: :unauthorized
         end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     def create 
         user = User.create!(user_params)
         session[:user_id] = user.id
-        render json: user, status: :created
+        render json: user, only: [:id, :username], status: :created
     rescue ActiveRecord::RecordInvalid => exception
         render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
