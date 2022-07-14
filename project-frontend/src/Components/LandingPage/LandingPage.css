@@ -1,0 +1,18 @@
+.page-title {
+    height: 100vh;
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+  }
+
+  .title{
+    font-family: mundial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 10em;
+    color: rgb(115, 34, 191);
+    margin-right: 500px;
+    margin-bottom: 200px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(253, 253, 253);
+  }

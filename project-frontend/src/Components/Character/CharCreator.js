@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import CharSelection from "./CharSelection";
+import "./CharCreator.css";
 
 function CharCreator() {
   const [newVoyager, setNewVoyager] = useState("");
@@ -18,6 +19,8 @@ function CharCreator() {
       .then((classes) => setShowAllClasses(classes));
   }, []);
 
+  console.log(showAllClasses);
+
   function handleCharSelect(choice) {
     setSelection(true);
     setNewVoyager(choice);
@@ -27,7 +30,9 @@ function CharCreator() {
   else
     return (
       <>
-        <h2>Create New Character</h2>
+        <div id="charcreatorhead">
+          <h2 id="h2">Create New Character</h2>
+        </div>
         <Row xs={1} md={4} className="g-4">
           {showAllClasses.map((oneClass) => (
             <Col key={oneClass.name}>
@@ -40,7 +45,7 @@ function CharCreator() {
                     variant="primary"
                     onClick={() => handleCharSelect(oneClass.name)}
                   >
-                    Go somewhere
+                    Select Class
                   </Button>
                 </Card.Body>
               </Card>
