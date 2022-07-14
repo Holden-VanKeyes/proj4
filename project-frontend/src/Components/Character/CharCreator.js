@@ -1,32 +1,37 @@
-import React from "react";
+import React from 'react'
 
-import Button from "react-bootstrap/esm/Button";
-import { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import CharSelection from "./CharSelection";
-import "./CharCreator.css";
+
+import Button from 'react-bootstrap/esm/Button'
+import { useState, useEffect } from 'react'
+import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import CharSelection from './CharSelection'
+import './CharCreator.css'
+
+
 
 function CharCreator() {
-  const [newVoyager, setNewVoyager] = useState("");
-  const [selection, setSelection] = useState(false);
-  const [showAllClasses, setShowAllClasses] = useState([]);
+  const [newVoyager, setNewVoyager] = useState('')
+  const [selection, setSelection] = useState(false)
+  const [showAllClasses, setShowAllClasses] = useState([])
 
   useEffect(() => {
-    fetch("/orders")
-      .then((response) => response.json())
-      .then((classes) => setShowAllClasses(classes));
-  }, []);
 
-  console.log(showAllClasses);
+    fetch("/orders")
+
+      .then((response) => response.json())
+      .then((classes) => setShowAllClasses(classes))
+  }, [])
+
+  // console.log(showAllClasses)
 
   function handleCharSelect(choice) {
-    setSelection(true);
-    setNewVoyager(choice);
+    setSelection(true)
+    setNewVoyager(choice)
   }
-  console.log(showAllClasses);
-  if (selection) return <CharSelection newVoyager={newVoyager} />;
+
+  if (selection) return <CharSelection newVoyager={newVoyager} />
   else
     return (
       <>
@@ -36,7 +41,9 @@ function CharCreator() {
         <Row xs={1} md={4} className="g-4">
           {showAllClasses.map((oneClass) => (
             <Col key={oneClass.name}>
+
               <Card style={{ width: "18rem" }}>
+
                 <Card.Img variant="top" src={oneClass.image_url} />
                 <Card.Body>
                   <Card.Title>{oneClass.name}</Card.Title>
@@ -53,6 +60,6 @@ function CharCreator() {
           ))}
         </Row>
       </>
-    );
+    )
 }
-export default CharCreator;
+export default CharCreator
