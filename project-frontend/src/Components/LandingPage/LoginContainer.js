@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 
 function LoginContainer() {
   return (
-    <>
-      <h2>HOME</h2>
+    <div>
       <Button variant="outline-info">
         <Link to="/login">Sign In</Link>
       </Button>
@@ -14,7 +13,7 @@ function LoginContainer() {
       </Button>
       {/* <Button onClick={showSignIn}>Sign In</Button>
         <Button onClick={showCreate}>Create Account</Button> */}
-    </>
+    </div>
   );
 }
 
