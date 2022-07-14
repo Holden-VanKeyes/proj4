@@ -13,7 +13,7 @@ function CharCreator() {
   const [showAllClasses, setShowAllClasses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/orders")
+    fetch("/orders")
       .then((response) => response.json())
       .then((classes) => setShowAllClasses(classes));
   }, []);

@@ -1,6 +1,29 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-function User({ currentUser }) {
-  return <div>{currentUser.username}</div>;
+function User({ currentUser, handleLogout }) {
+  const navigate = useNavigate();
+
+  const handleLogoutClick = async function fetchDELETE() {
+    const response = await fetch("/logout", {
+      method: "DELETE",
+    });
+    const data = await response;
+    if (response.ok) {
+      handleLogout();
+      navigate("/");
+    } else {
+      //set Errors state
+      console.log(data.error);
+    }
+  };
+
+  return (
+    <div>
+      {currentUser.username}
+      <Button onClick={handleLogoutClick}>Logout</Button>
+    </div>
+  );
 }
 export default User;

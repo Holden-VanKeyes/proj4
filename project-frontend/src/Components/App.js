@@ -1,6 +1,6 @@
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import NavHeader from "./NavHeader";
 import CharCreator from "./CharCreator";
 //import CharSelection from "./CharSelection";
@@ -18,22 +18,48 @@ function App() {
     username: "",
   });
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    fetch("http://localhost:3000/me", {
+    fetch("/me", {
       credentials: "include",
     })
       .then((r) => r.json())
       .then((data) => {
-        console.log("data from get'/me'", data);
-        if (data.ok) {
+        if (data.username) {
+          handleLogin(data);
+          navigate("user-home");
+        } else {
+          return null;
         }
       });
   }, []);
+
+  // redirects to user-home page if session remembers user
+  // think i have to change this to an async function
+  // useEffect(() => {
+  //   fetch("/me", {
+  //     credentials: "include",
+  //   })
+  //     .then((r) => {
+  //       if (r.ok) {
+  //         r.json();
+  //       }
+  //     })
+  //     .then((data) => {
+  //       setCurrentUser(data);
+  //       navigate("/user-home");
+  //     });
+  // }, []);
 
   console.log("currentUser", currentUser);
 
   function handleLogin(newUser) {
     setCurrentUser(newUser);
+  }
+
+  function handleLogout() {
+    setCurrentUser("");
   }
 
   return (
@@ -50,7 +76,12 @@ function App() {
           element={<LoginForm handleLogin={handleLogin} />}
         />
         <Route path="/create-char" element={<CharCreator />} />
-        <Route path="/user-home" element={<User currentUser={currentUser} />} />
+        <Route
+          path="/user-home"
+          element={
+            <User currentUser={currentUser} handleLogout={handleLogout} />
+          }
+        />
         <Route path="/create-camp" element={<CampCreator />} />
         <Route path="/show-camps" element={<AllCamps />} />
       </Routes>
