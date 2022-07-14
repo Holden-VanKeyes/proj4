@@ -1,10 +1,6 @@
 puts "🏕 Seeding users..."
 
 #User.create(username: username, password_digest: )
-User.create(username: "brian", password_digest: "123")
-User.create(username: "abram", password_digest: "123")
-User.create(username: "river", password_digest: "123")
-User.create(username: "jimmy", password_digest: "123")
 
 
 puts "🏕 Seeding campaigns..."

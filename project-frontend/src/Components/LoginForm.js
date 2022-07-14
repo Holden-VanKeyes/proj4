@@ -29,7 +29,7 @@ function LoginForm({ handleLogin }) {
     if (response.ok) {
       //set currentUser state in App to response object
       handleLogin(data);
-      navigate("/user-home");
+      navigate("/home");
     } else {
       //set Errors state
       console.log("errors:", data.errors);
@@ -37,41 +37,64 @@ function LoginForm({ handleLogin }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-        <Form.Label column sm={1}></Form.Label>
-        <Col sm={5}>
-          <Form.Control
-            type="username"
-            placeholder="Username"
-            onChange={handleUserName}
-          />
-        </Col>
-      </Form.Group>
+    <div
+      className="LandingPage"
+      style={{
+        backgroundImage: `url('https://i.imgur.com/OF1Y6XZ.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="page-title">
+        <div className="title">Voyagers</div>
+        <div>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formHorizontalEmail"
+            >
+              <Form.Label column sm={1}></Form.Label>
+              <Col sm={5}>
+                <Form.Control
+                  type="username"
+                  placeholder="Username"
+                  onChange={handleUserName}
+                />
+              </Col>
+            </Form.Group>
 
-      <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-        <Form.Label column sm={1}></Form.Label>
-        <Col sm={5}>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={handlePassword}
-          />
-        </Col>
-      </Form.Group>
+            <Form.Group
+              as={Row}
+              className="mb-3"
+              controlId="formHorizontalPassword"
+            >
+              <Form.Label column sm={1}></Form.Label>
+              <Col sm={5}>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  onChange={handlePassword}
+                />
+              </Col>
+            </Form.Group>
 
-      {/* <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
+            {/* <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
         <Col sm={{ span: 10, offset: 2 }}>
           <Form.Check label="Remember me" />
         </Col>
       </Form.Group> */}
 
-      <Form.Group as={Row} className="mb-3">
-        <Col sm={{ span: 10, offset: 2 }}>
-          <Button type="submit">Sign In</Button>
-        </Col>
-      </Form.Group>
-    </Form>
+            <Form.Group as={Row} className="mb-3">
+              <Col sm={{ span: 10, offset: 2 }}>
+                <Button type="submit">Sign In</Button>
+              </Col>
+            </Form.Group>
+          </Form>
+        </div>
+      </div>
+    </div>
   );
 }
 
