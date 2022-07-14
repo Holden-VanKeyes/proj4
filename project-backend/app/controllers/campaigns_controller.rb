@@ -14,11 +14,13 @@ class CampaignsController < ApplicationController
         campaign = Campaign.create!(campaign_params)
         render json: campaign, status: :created
     rescue ActiveRecord::RecordInvalid => exception
-        render json: {errors: exception.errors.full_messages}, status: :unprocessable_entity
+        render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     def update 
-
+        campaign = Campaign.find(params[:id])
+        campaign.update(campaign_params)
+        render json: campaign, status: :accepted
     end 
 
     def destroy 
@@ -35,8 +37,8 @@ class CampaignsController < ApplicationController
             :genre, 
             :notes, 
             :world_level, 
-            :start_time, 
-            :admin_id)
+            :start_time
+        )
     end
 
     def campaign_not_found

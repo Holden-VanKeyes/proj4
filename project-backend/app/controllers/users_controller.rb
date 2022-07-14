@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    skip_before_action :authorize, only: [:create]
+
     rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
 
     def index 
@@ -6,18 +8,25 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find(params[:id])
-        render json: user 
+        if current_user
+            render json: current_user
+        else 
+            render json: {error:"No active session"}, status: :unauthorized
+        end
     end
 
     def create 
-     user = User.create!(user_params)
-    
-     render json: user
+        user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: user, status: :created
+    rescue ActiveRecord::RecordInvalid => exception
+        render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     def update
-
+        user = User.find(params[:id])
+        user.update(user_params)
+        render json: user, status: :accepted
     end
 
     def destroy
@@ -29,7 +38,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-      params.permit(:username, :password)
+      params.permit(:username, :password, :password_confirmation)
     end   
 
     def user_not_found

@@ -14,11 +14,13 @@ class CharactersController < ApplicationController
         character = Character.create!(character_params)
         render json: character, status: :created
     rescue ActiveRecord::RecordInvalid => exception
-        render json: {errors: exception.errors.full_messages}, status: :unprocessable_entity
+        render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 
     def update 
-
+        character = Character.find(params[:id])
+        character.update(character_params)
+        render json: character, status: :accepted
     end 
 
     def destroy 
