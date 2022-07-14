@@ -1,16 +1,16 @@
-import React from 'react'
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Button from 'react-bootstrap/esm/Button'
-import { useState, useEffect } from 'react'
-import Form from 'react-bootstrap/Form'
-import InputGroup from 'react-bootstrap/InputGroup'
-import Card from 'react-bootstrap/Card'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import React from "react";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+// import Button from 'react-bootstrap/esm/Button'
+// import { useState, useEffect } from 'react'
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 function CharSelection(newVoyager) {
-  console.log(newVoyager)
+  console.log(newVoyager);
 
   //   function handleCreation(e) {
   //     if (e === 'Armor') return console.log('Chainmail')
@@ -30,7 +30,7 @@ function CharSelection(newVoyager) {
       <InputGroup size="sm" className="mb-3" id="char-class">
         <InputGroup.Text id="inputGroup-sizing-sm">
           {newVoyager.newVoyager}
-        </InputGroup.Text>{' '}
+        </InputGroup.Text>{" "}
         <Form.Control
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm"
@@ -39,7 +39,7 @@ function CharSelection(newVoyager) {
       <div id="char-box">
         <Row>
           <Col>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Card.Title>Weapon</Card.Title>
@@ -59,7 +59,7 @@ function CharSelection(newVoyager) {
             </Card>
           </Col>
           <Col>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Card.Title>Armor</Card.Title>
@@ -79,7 +79,7 @@ function CharSelection(newVoyager) {
             </Card>
           </Col>
           <Col>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
                 <Card.Title>Potion</Card.Title>
@@ -101,7 +101,7 @@ function CharSelection(newVoyager) {
         </Row>
       </div>
     </>
-  )
+  );
 }
 
-export default CharSelection
+export default CharSelection;

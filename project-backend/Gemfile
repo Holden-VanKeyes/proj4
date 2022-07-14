@@ -27,6 +27,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'active_model_serializers',
+    '~> 0.10.12',
+    git: 'https://github.com/jpawlyn/active_model_serializers.git',
+    branch: '0-10-stable'
+
 # More Rack middleware! Used to handle CORS requests
 # https://github.com/cyu/rack-cors
 gem "rack-cors", "~> 1.1"

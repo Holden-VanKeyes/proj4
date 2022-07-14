@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-function User() {
-  return <div>User</div>
+function User({ currentUser }) {
+  return <div>{currentUser.username}</div>;
 }
-export default User
+export default User;
