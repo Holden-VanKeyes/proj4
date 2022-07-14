@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 
-function Home() {
+function LoginContainer() {
   const [signInClick, setSignInClick] = useState(false)
   const [createClick, setCreateClick] = useState(false)
   const [userName, setUserName] = useState('')
@@ -187,4 +187,4 @@ function Home() {
     )
 }
 
-export default Home
+export default LoginContainer

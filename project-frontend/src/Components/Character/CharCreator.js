@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import CharSelection from './CharSelection'
+import './CharCreator.css'
 
 function CharCreator() {
   const [newVoyager, setNewVoyager] = useState('')
@@ -13,10 +14,12 @@ function CharCreator() {
   const [showAllClasses, setShowAllClasses] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/character_classes')
+    fetch('http://localhost:3000/orders')
       .then((response) => response.json())
       .then((classes) => setShowAllClasses(classes))
   }, [])
+
+  console.log(showAllClasses);
 
   function handleCharSelect(choice) {
     setSelection(true)
@@ -26,10 +29,12 @@ function CharCreator() {
   else
     return (
       <>
-        <h2>Create New Character</h2>
+        <div id="charcreatorhead">
+          <h2 id="h2">Create New Character</h2>
+        </div>
         <Row xs={1} md={4} className="g-4">
           {showAllClasses.map((oneClass) => (
-            <Col>
+            <Col key={oneClass.name}>
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={oneClass.image_url} />
                 <Card.Body>
@@ -39,7 +44,7 @@ function CharCreator() {
                     variant="primary"
                     onClick={() => handleCharSelect(oneClass.name)}
                   >
-                    Go somewhere
+                    Select Class
                   </Button>
                 </Card.Body>
               </Card>
