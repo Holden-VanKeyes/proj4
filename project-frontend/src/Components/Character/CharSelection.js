@@ -8,6 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container"
 import { useNavigate } from "react-router-dom";
 import NavHeader from "../NavHeader";
 
@@ -175,23 +176,27 @@ function CharSelection({ chosenClass, currentUser }) {
           />
         </Form.Group>
       </Form>
-      {/* <InputGroup size="sm" className="mb-3" id="char-name">
+      <InputGroup size="sm" className="mb-3" id="char-name">
         <InputGroup.Text id="inputGroup-sizing-sm">Name</InputGroup.Text>
         <Form.Control
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm"
         />
-      </InputGroup> */}
-      <InputGroup size="sm" className="mb-3" id="char-class">
+      </InputGroup>
+      <div>
+      <InputGroup className="mb-3" id="char-name">
         <InputGroup.Text id="inputGroup-sizing-sm">
           Chosen Class:
         </InputGroup.Text>{" "}
         {chosenClass.name}, ability: {chosenClass.ability}
       </InputGroup>
-      <div id="char-box">
-        <Row>
+      </div>
+      <Container>
+      <div className="char-box" >
+        <Row className="g-4">
           <Col>
-            <Card style={{ width: "18rem" }}>
+
+            <Card className="card h-100" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={firstWeapon.image_url} />
 
               <Card.Body>
@@ -215,7 +220,8 @@ function CharSelection({ chosenClass, currentUser }) {
             </Card>
           </Col>
           <Col>
-            <Card style={{ width: "18rem" }}>
+
+            <Card className="card h-100" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={firstArmor.image_url} />
 
               <Card.Body>
@@ -239,7 +245,8 @@ function CharSelection({ chosenClass, currentUser }) {
             </Card>
           </Col>
           <Col>
-            <Card style={{ width: "18rem" }}>
+
+            <Card className="card h-100" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={firstPotion.image_url} />
 
               <Card.Body>
@@ -264,8 +271,9 @@ function CharSelection({ chosenClass, currentUser }) {
           </Col>
         </Row>
       </div>
-    </>
-  );
+      </Container>
+      </>
+  ); 
 }
 
 export default CharSelection;

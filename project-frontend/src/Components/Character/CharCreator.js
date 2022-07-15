@@ -35,8 +35,10 @@ function CharCreator({ currentUser }) {
         </div>
         <Row xs={1} md={4} className="g-4">
           {showAllClasses.map((oneClass) => (
-            <Col key={oneClass.id}>
-              <Card style={{ width: "18rem" }}>
+            <Col key={oneClass.name}>
+
+              <Card className="card h-100" style={{ width: "18rem" }}>
+
                 <Card.Img variant="top" src={oneClass.image_url} />
                 <Card.Body>
                   <Card.Title>{oneClass.name}</Card.Title>

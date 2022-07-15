@@ -1,0 +1,43 @@
+div.selectform{
+    width: 100%;
+    display: flex;
+}
+
+.mb-3{
+    margin-top: 5em;
+}
+
+#char-name{
+    position: fixed;
+    width: 200px;
+      top: 20%;
+     left: 35%;
+      transform: translate(-50%, -50%);
+}
+
+#char-box{
+  
+    border-style: groove;
+    border:solid 5px;
+    
+    border-color: black;
+    position: fixed;
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-right: 30px;
+       top: 50%;
+       left: 45%;
+       transform: translate(-50%, -50%);
+   }
+
+   #selection{
+     position: relative;
+     margin-left: 380px;
+   }
+   #char-class{
+     position: fixed;
+     width: 200px;
+       top: 20%;
+      left: 40%;
+       transform: translate(50%, -50%);
+   }

@@ -36,4 +36,5 @@ function User({ currentUser, handleLogout }) {
     </div>
   )
 }
+
 export default User

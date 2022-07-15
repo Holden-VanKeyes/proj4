@@ -64,6 +64,17 @@ function AuthApp({ currentUser }) {
         </div>
         <div className="link">
           <Link
+            to="/Character/CharGallery"
+            style={{
+              textDecoration: "none",
+              color: "rgb(115, 34, 191)",
+            }}
+          >
+            Characters
+          </Link>
+        </div>
+        <div className="link">
+          <Link
             to="/Campaign/CampCreator"
             style={{
               textDecoration: 'none',
