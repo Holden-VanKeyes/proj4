@@ -7,9 +7,17 @@ class UsersController < ApplicationController
         render json: User.all 
     end
 
+    def get_characters
+        if current_user
+            render json: current_user, serializer: UserCharactersSerializer
+        else 
+            render json: {error:"No active session"}, status: :unauthorized
+        end
+    end
+
     def show
         if current_user
-            render json: current_user, only: [:id, :username]
+            render json: current_user
         else 
             render json: {error:"No active session"}, status: :unauthorized
         end

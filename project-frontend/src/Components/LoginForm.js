@@ -32,7 +32,7 @@ function LoginForm({ handleLogin }) {
       navigate("/home");
     } else {
       //set Errors state
-      console.log("errors:", data.errors);
+      console.log("errors:", data.error);
     }
   };
 

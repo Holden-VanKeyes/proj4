@@ -1,37 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import CharSelection from "./CharSelection";
+import { Row, Col, Card, Button } from "react-bootstrap";
 
-
-import Button from 'react-bootstrap/esm/Button'
-import { useState, useEffect } from 'react'
-import Card from 'react-bootstrap/Card'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import CharSelection from './CharSelection'
-import './CharCreator.css'
-
-
-
-function CharCreator() {
-  const [newVoyager, setNewVoyager] = useState('')
-  const [selection, setSelection] = useState(false)
-  const [showAllClasses, setShowAllClasses] = useState([])
+function CharCreator({ currentUser }) {
+  const [newVoyager, setNewVoyager] = useState("");
+  const [selection, setSelection] = useState(false);
+  const [showAllClasses, setShowAllClasses] = useState([]);
+  const [chosenClass, setChosenClass] = useState({});
 
   useEffect(() => {
-
     fetch("/orders")
-
       .then((response) => response.json())
-      .then((classes) => setShowAllClasses(classes))
-  }, [])
-
-  // console.log(showAllClasses)
+      .then((classes) => setShowAllClasses(classes));
+  }, []);
 
   function handleCharSelect(choice) {
-    setSelection(true)
-    setNewVoyager(choice)
+    setSelection(true);
+    setNewVoyager(choice);
   }
 
-  if (selection) return <CharSelection newVoyager={newVoyager} />
+  if (selection)
+    return (
+      <CharSelection
+        chosenClass={chosenClass}
+        currentUser={currentUser}
+        newVoyager={newVoyager}
+      />
+    );
   else
     return (
       <>
@@ -50,7 +45,10 @@ function CharCreator() {
                   <Card.Text>{oneClass.description}</Card.Text>
                   <Button
                     variant="primary"
-                    onClick={() => handleCharSelect(oneClass.name)}
+                    onClick={() => {
+                      setChosenClass(oneClass);
+                      handleCharSelect(oneClass.id);
+                    }}
                   >
                     Select Class
                   </Button>
@@ -60,6 +58,6 @@ function CharCreator() {
           ))}
         </Row>
       </>
-    )
+    );
 }
-export default CharCreator
+export default CharCreator;

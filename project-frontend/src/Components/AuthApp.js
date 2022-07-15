@@ -1,21 +1,21 @@
-import "../App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import '../App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link,
   useNavigate,
-} from "react-router-dom";
-import LandingPage from "./LandingPage/LandingPage";
-import CharCreator from "./Character/CharCreator";
-import CharGallery from "./Character/CharGallery";
-import CampCreator from "./Campaign/CampCreator";
-import SignupForm from "./SignupForm";
-import LoginForm from "./LoginForm";
-import User from "./User";
-import { useState, useEffect } from "react";
-import AllCamps from "./Campaign/AllCamps";
+} from 'react-router-dom'
+import LandingPage from './LandingPage/LandingPage'
+import CharCreator from './Character/CharCreator'
+import CampCreator from './Campaign/CampCreator'
+import SignupForm from './SignupForm'
+import LoginForm from './LoginForm'
+import User from './User'
+import { useState, useEffect } from 'react'
+import AllCamps from './Campaign/AllCamps'
+import NavHeader from './NavHeader'
 
 function AuthApp({ currentUser }) {
   //const navigate = useNavigate();
@@ -39,13 +39,13 @@ function AuthApp({ currentUser }) {
 
   return (
     <div>
-      <nav>
+      {/* <nav>
         <div className="link">
           <Link
             to="/user-home"
             style={{
-              textDecoration: "none",
-              color: "rgb(115, 34, 191)",
+              textDecoration: 'none',
+              color: 'rgb(115, 34, 191)',
             }}
           >
             Home
@@ -55,8 +55,8 @@ function AuthApp({ currentUser }) {
           <Link
             to="/Character/CharCreator"
             style={{
-              textDecoration: "none",
-              color: "rgb(115, 34, 191)",
+              textDecoration: 'none',
+              color: 'rgb(115, 34, 191)',
             }}
           >
             New Character
@@ -77,8 +77,8 @@ function AuthApp({ currentUser }) {
           <Link
             to="/Campaign/CampCreator"
             style={{
-              textDecoration: "none",
-              color: "rgb(115, 34, 191)",
+              textDecoration: 'none',
+              color: 'rgb(115, 34, 191)',
             }}
           >
             New Campaign
@@ -88,8 +88,8 @@ function AuthApp({ currentUser }) {
           <Link
             to="/Campaign/AllCamps"
             style={{
-              textDecoration: "none",
-              color: "rgb(115, 34, 191)",
+              textDecoration: 'none',
+              color: 'rgb(115, 34, 191)',
             }}
           >
             Campaigns
@@ -98,20 +98,21 @@ function AuthApp({ currentUser }) {
         <div
           className="link"
           style={{
-            textDecoration: "none",
-            color: "rgb(115, 34, 191)",
+            textDecoration: 'none',
+            color: 'rgb(115, 34, 191)',
           }}
         >
           Hello, {currentUser.username.toUpperCase()}!
         </div>
-      </nav>
+      </nav> */}
+      {/* <NavHeader currentUser={currentUser} /> */}
       <div
         className="LandingPage"
         style={{
           backgroundImage: `url('https://i.imgur.com/OF1Y6XZ.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          backgroundAttachment: "fixed",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundAttachment: 'fixed',
         }}
       >
         <div className="page-title">
@@ -119,7 +120,7 @@ function AuthApp({ currentUser }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default AuthApp;
+export default AuthApp
