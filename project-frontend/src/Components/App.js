@@ -69,8 +69,10 @@ function App() {
             <User currentUser={currentUser} handleLogout={handleLogout} />
           }
         />
-
-        <Route path="/Character/CharCreator" element={<CharCreator />} />
+        <Route
+          path="/Character/CharCreator"
+          element={<CharCreator currentUser={currentUser} />}
+        />
         <Route path="/Campaign/CampCreator" element={<CampCreator />} />
         <Route path="/Campaign/AllCamps" element={<AllCamps />} />
         <Route path="/" element={<LandingPage />} />

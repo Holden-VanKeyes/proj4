@@ -1,3 +1,5 @@
+Order.destroy_all
+Item.destroy_all
 puts "🏕 Seeding users..."
 
 #User.create(username: username, password_digest: )
