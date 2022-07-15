@@ -66,3 +66,11 @@ nav {
     transform: translate(50%, -50%);
 }
 
+#logout{
+  position: fixed;
+  width: 200px;
+    top: 20%;
+   left: 35%;
+    transform: translate(-50%, -50%);
+}
+

@@ -9,6 +9,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
+import NavHeader from '../NavHeader'
 
 function CharSelection({ chosenClass, currentUser }) {
   const [voyagerName, setVoyagerName] = useState("");
@@ -161,6 +162,7 @@ function CharSelection({ chosenClass, currentUser }) {
 
   return (
     <>
+      {/* <NavHeader /> */}
       <Form onSubmit={handleSubmitName}>
         <Form.Group size="sm" className="mb-3" id="char-name">
           <Form.Control
@@ -263,7 +265,7 @@ function CharSelection({ chosenClass, currentUser }) {
         </Row>
       </div>
     </>
-  );
+  )
 }
 
-export default CharSelection;
+export default CharSelection

@@ -1,13 +1,5 @@
 import React from "react";
 
-import Button from "react-bootstrap/esm/Button";
-import { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import CharSelection from "./CharSelection";
-import "./CharCreator.css";
-
 function CharCreator({ currentUser }) {
   const [newVoyager, setNewVoyager] = useState("");
   const [selection, setSelection] = useState(false);
@@ -19,8 +11,6 @@ function CharCreator({ currentUser }) {
       .then((response) => response.json())
       .then((classes) => setShowAllClasses(classes));
   }, []);
-
-  console.log(showAllClasses[0]);
 
   function handleCharSelect(choice) {
     setSelection(true);
