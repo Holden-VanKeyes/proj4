@@ -8,8 +8,9 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container"
 
-function CharSelection(newVoyager) {
+function CharSelection(createVoyager) {
 
   const [voyagerName, setVoyagerName] = useState('')
 
@@ -41,6 +42,20 @@ function CharSelection(newVoyager) {
       })
   }, [])
 
+  /*const handleSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+    fetch("http://localhost:3000/characters", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userCreation),
+    })
+        .then((r) => r.json())
+        .then((newVoyager) => createVoyager(newVoyager));
+}*/
+
   function handleWeaponSelect(e) {
     const newWeaponObj = weaponList.filter(
       (weapon) => weapon.name === e.target.value
@@ -65,16 +80,6 @@ function CharSelection(newVoyager) {
     setFirstPotion(potionSelection)
   }
 
-  function handleUserCreation() {
-    setUserCreation({
-      name: voyagerName,
-      class: newVoyager.newVoyager,
-      weapon: firstWeapon,
-      armor: firstArmor,
-      potion: firstPotion,
-    })
-  }
-  console.log(userCreation)
   function handleVoyagerName(e) {
     setVoyagerName(e.target.value)
   }
@@ -84,11 +89,22 @@ function CharSelection(newVoyager) {
     setVoyagerName(voyagerName)
   }
 
+    /*function handleUserCreation() {
+    setUserCreation({
+      name: voyagerName,
+      class: createVoyager.createVoyager,
+      weapon: firstWeapon,
+      armor: firstArmor,
+      potion: firstPotion,
+    })
+  }*/
+
 
   return (
     <>
+    <div className='selectform'>
       <Form>
-        <Form.Group size="sm" className="mb-3" id="char-name">
+        <Form.Group className="mb-3" id="char-name">
           <Form.Control
             type="char-name"
             placeholder="Voyager Name"
@@ -99,27 +115,29 @@ function CharSelection(newVoyager) {
           </Button>
         </Form.Group>
       </Form>
-      {/* <InputGroup size="sm" className="mb-3" id="char-name">
+      {<InputGroup size="sm" className="mb-3" id="char-name">
         <InputGroup.Text id="inputGroup-sizing-sm">Name</InputGroup.Text>
         <Form.Control
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm"
         />
-      </InputGroup> */}
-      <InputGroup size="sm" className="mb-3" id="char-class">
+      </InputGroup>}
+      <InputGroup className="mb-3" id="char-name">
         <InputGroup.Text id="inputGroup-sizing-sm">
-          {newVoyager.newVoyager}
+          {createVoyager.createVoyager}
         </InputGroup.Text>{" "}
         <Form.Control
           aria-label="Small"
           aria-describedby="inputGroup-sizing-sm"
         />
       </InputGroup>
-      <div id="char-box">
-        <Row>
+      </div>
+      <Container>
+      <div className="char-box" >
+        <Row className="g-4">
           <Col>
 
-            <Card style={{ width: '18rem' }}>
+            <Card className="card h-100" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={firstWeapon.image_url} />
 
               <Card.Body>
@@ -142,7 +160,7 @@ function CharSelection(newVoyager) {
           </Col>
           <Col>
 
-            <Card style={{ width: '18rem' }}>
+            <Card className="card h-100" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={firstArmor.image_url} />
 
               <Card.Body>
@@ -165,7 +183,7 @@ function CharSelection(newVoyager) {
           </Col>
           <Col>
 
-            <Card style={{ width: '18rem' }}>
+            <Card className="card h-100" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={firstPotion.image_url} />
 
               <Card.Body>
@@ -191,8 +209,9 @@ function CharSelection(newVoyager) {
           Choose Voyager
         </Button>
       </div>
-    </>
-  );
+      </Container>
+      </>
+  ); 
 }
 
 export default CharSelection;

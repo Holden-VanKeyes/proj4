@@ -42,7 +42,7 @@ function CharCreator() {
           {showAllClasses.map((oneClass) => (
             <Col key={oneClass.name}>
 
-              <Card style={{ width: "18rem" }}>
+              <Card className="card h-100" style={{ width: "18rem" }}>
 
                 <Card.Img variant="top" src={oneClass.image_url} />
                 <Card.Body>

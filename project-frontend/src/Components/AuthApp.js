@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import CharCreator from "./Character/CharCreator";
+import CharGallery from "./Character/CharGallery";
 import CampCreator from "./Campaign/CampCreator";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
@@ -59,6 +60,17 @@ function AuthApp({ currentUser }) {
             }}
           >
             New Character
+          </Link>
+        </div>
+        <div className="link">
+          <Link
+            to="/Character/CharGallery"
+            style={{
+              textDecoration: "none",
+              color: "rgb(115, 34, 191)",
+            }}
+          >
+            Characters
           </Link>
         </div>
         <div className="link">

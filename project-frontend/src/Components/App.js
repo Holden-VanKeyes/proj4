@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import CharCreator from "./Character/CharCreator";
+import CharGallery from "./Character/CharGallery"
 import CampCreator from "./Campaign/CampCreator";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
@@ -62,6 +63,7 @@ function App() {
           }
         />
         <Route path="/Character/CharCreator" element={<CharCreator />} />
+        <Route path="/Character/CharGallery" element={<CharGallery />} />
         <Route path="/Campaign/CampCreator" element={<CampCreator />} />
         <Route path="/Campaign/AllCamps" element={<AllCamps />} />
         <Route path="/" element={<LandingPage />} />

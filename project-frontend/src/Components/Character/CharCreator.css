@@ -1,4 +1,6 @@
-
+.CharCreator{
+  background-color: black;
+}
 
 body {
     font-family: mundial, sans-serif;
@@ -15,10 +17,15 @@ body {
     font-size: 3em;
     padding-top: .5em;
     padding-bottom: .25em;
+    text-align: center;
 }
 
 div.card{
     background-color: #d0b9eb;
+}
+
+.card{
+  height: 100%;
 }
 
 .btn-primary{
@@ -30,6 +37,12 @@ div.card{
     transition-duration: 0.4s;
   }
   
-  .button:hover {
-    background-color: #85279c; /* Green */
+  .btn-primary:hover {
+    background-color: #85279c;
+  }
+
+  .g-4{
+    background-color: rgb(115, 34, 191);
+    padding: 20px;
+    border-radius: 12px;
   }
