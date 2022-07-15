@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   # log out, destroy session cookie
   delete '/logout', to: "sessions#destroy"
 
+  # get users characters for user-home
+  get '/user_characters', to: "users#get_characters"
+
 
 
 
