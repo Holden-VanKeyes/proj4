@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import CharSelection from "./CharSelection";
+import { Row, Col, Card, Button } from "react-bootstrap";
 
 function CharCreator({ currentUser }) {
   const [newVoyager, setNewVoyager] = useState("");

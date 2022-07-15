@@ -9,7 +9,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
-import NavHeader from '../NavHeader'
+import NavHeader from "../NavHeader";
 
 function CharSelection({ chosenClass, currentUser }) {
   const [voyagerName, setVoyagerName] = useState("");
@@ -165,15 +165,15 @@ function CharSelection({ chosenClass, currentUser }) {
       {/* <NavHeader /> */}
       <Form onSubmit={handleSubmitName}>
         <Form.Group size="sm" className="mb-3" id="char-name">
+          <Button id="selection" type="submit">
+            CREATE VOYAGER
+          </Button>
           <Form.Control
             type="char-name"
             placeholder="Voyager Name"
             onChange={handleVoyagerName}
           />
         </Form.Group>
-        <Button id="selection" type="submit">
-          CREATE VOYAGER
-        </Button>
       </Form>
       {/* <InputGroup size="sm" className="mb-3" id="char-name">
         <InputGroup.Text id="inputGroup-sizing-sm">Name</InputGroup.Text>
@@ -265,7 +265,7 @@ function CharSelection({ chosenClass, currentUser }) {
         </Row>
       </div>
     </>
-  )
+  );
 }
 
-export default CharSelection
+export default CharSelection;
