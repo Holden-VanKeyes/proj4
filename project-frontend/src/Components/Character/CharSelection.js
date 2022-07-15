@@ -8,7 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container"
+import Container from "react-bootstrap/Container";
 import { useNavigate } from "react-router-dom";
 import NavHeader from "../NavHeader";
 
@@ -164,116 +164,108 @@ function CharSelection({ chosenClass, currentUser }) {
   return (
     <>
       {/* <NavHeader /> */}
+      <div>a</div>
+      <div>b</div>
       <Form onSubmit={handleSubmitName}>
         <Form.Group size="sm" className="mb-3" id="char-name">
-          <Button id="selection" type="submit">
-            CREATE VOYAGER
-          </Button>
           <Form.Control
             type="char-name"
             placeholder="Voyager Name"
             onChange={handleVoyagerName}
           />
         </Form.Group>
+        <Button id="selection" type="submit">
+          CREATE VOYAGER
+        </Button>
       </Form>
-      <InputGroup size="sm" className="mb-3" id="char-name">
-        <InputGroup.Text id="inputGroup-sizing-sm">Name</InputGroup.Text>
-        <Form.Control
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm"
-        />
-      </InputGroup>
       <div>
-      <InputGroup className="mb-3" id="char-name">
-        <InputGroup.Text id="inputGroup-sizing-sm">
-          Chosen Class:
-        </InputGroup.Text>{" "}
-        {chosenClass.name}, ability: {chosenClass.ability}
-      </InputGroup>
+        <InputGroup className="mb-3" id="char-name">
+          <InputGroup.Text id="inputGroup-sizing-sm">
+            Chosen Class:
+          </InputGroup.Text>{" "}
+          {chosenClass.name}, ability: {chosenClass.ability}
+        </InputGroup>
       </div>
       <Container>
-      <div className="char-box" >
-        <Row className="g-4">
-          <Col>
+        <div className="char-box">
+          <Row className="g-4">
+            <Col>
+              <Card className="card h-100" style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={firstWeapon.image_url} />
 
-            <Card className="card h-100" style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={firstWeapon.image_url} />
+                <Card.Body>
+                  <Card.Title>Weapon</Card.Title>
+                  <Card.Text>
+                    Name: {firstWeapon.name} <br></br> Stats: {firstWeapon.stat}
+                  </Card.Text>
+                  <Form.Select
+                    variant="primary"
+                    // id="dropdown-basic-button"
+                    title="Dropdown button"
+                    onChange={handleWeaponSelect}
+                  >
+                    {weaponList.map((weapon) => (
+                      <option key={weapon.id} value={weapon.name}>
+                        {weapon.name}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="card h-100" style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={firstArmor.image_url} />
 
-              <Card.Body>
-                <Card.Title>Weapon</Card.Title>
-                <Card.Text>
-                  Name: {firstWeapon.name} <br></br> Stats: {firstWeapon.stat}
-                </Card.Text>
-                <Form.Select
-                  variant="primary"
-                  // id="dropdown-basic-button"
-                  title="Dropdown button"
-                  onChange={handleWeaponSelect}
-                >
-                  {weaponList.map((weapon) => (
-                    <option key={weapon.id} value={weapon.name}>
-                      {weapon.name}
-                    </option>
-                  ))}
-                </Form.Select>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
+                <Card.Body>
+                  <Card.Title>Armor</Card.Title>
+                  <Card.Text>
+                    Name:{firstArmor.name} <br></br> Stats:{firstArmor.stat}
+                  </Card.Text>
+                  <Form.Select
+                    variant="primary"
+                    // id="dropdown-basic-button"
+                    title="Dropdown button"
+                    onChange={handleArmorSelect}
+                  >
+                    {armorList.map((armor) => (
+                      <option key={armor.id} value={armor.name}>
+                        {armor.name}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="card h-100" style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={firstPotion.image_url} />
 
-            <Card className="card h-100" style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={firstArmor.image_url} />
-
-              <Card.Body>
-                <Card.Title>Armor</Card.Title>
-                <Card.Text>
-                  Name:{firstArmor.name} <br></br> Stats:{firstArmor.stat}
-                </Card.Text>
-                <Form.Select
-                  variant="primary"
-                  // id="dropdown-basic-button"
-                  title="Dropdown button"
-                  onChange={handleArmorSelect}
-                >
-                  {armorList.map((armor) => (
-                    <option key={armor.id} value={armor.name}>
-                      {armor.name}
-                    </option>
-                  ))}
-                </Form.Select>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col>
-
-            <Card className="card h-100" style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={firstPotion.image_url} />
-
-              <Card.Body>
-                <Card.Title>Potion</Card.Title>
-                <Card.Text>
-                  Name:{firstPotion.name} <br></br> Stats:{firstPotion.stat}
-                </Card.Text>
-                <Form.Select
-                  variant="primary"
-                  // id="dropdown-basic-button"
-                  title="Dropdown button"
-                  onChange={handlePotionSelect}
-                >
-                  {potionList.map((potion) => (
-                    <option key={potion.id} value={potion.name}>
-                      {potion.name}
-                    </option>
-                  ))}
-                </Form.Select>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </div>
+                <Card.Body>
+                  <Card.Title>Potion</Card.Title>
+                  <Card.Text>
+                    Name:{firstPotion.name} <br></br> Stats:{firstPotion.stat}
+                  </Card.Text>
+                  <Form.Select
+                    variant="primary"
+                    // id="dropdown-basic-button"
+                    title="Dropdown button"
+                    onChange={handlePotionSelect}
+                  >
+                    {potionList.map((potion) => (
+                      <option key={potion.id} value={potion.name}>
+                        {potion.name}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </div>
       </Container>
-      </>
-  ); 
+    </>
+  );
 }
 
 export default CharSelection;
